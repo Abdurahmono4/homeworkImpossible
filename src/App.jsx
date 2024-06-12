@@ -15,7 +15,7 @@ function App() {
     {
       path: "/",
       element: (
-        <ProtectdetRoutes user={true}>
+        <ProtectdetRoutes user={false}>
           <MainLayout />
         </ProtectdetRoutes>
       ),
@@ -33,7 +33,7 @@ function App() {
     },
     {
       path: "/register",
-      element: user ? <Navigate to="/" /> : <Login />,
+      element: user ? <Navigate to="/" /> : <Register />,
     },
   ]);
   return <RouterProvider router={routes} />;

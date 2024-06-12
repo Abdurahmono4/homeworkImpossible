@@ -26,7 +26,7 @@ function Register() {
     <div className="h-screen flex items-center justify-center bg-gradient-to-r ">
       <Form
         method="post"
-        className="card w-96 p-8 bg-white shadow-lg rounded-lg flex flex-col gap-y-4"
+        className="card w-96 p-8 shadow-lg rounded-lg flex flex-col gap-y-4"
       >
         <h4 className="text-center font-bold text-3xl text-gray-800">
           Register
@@ -67,11 +67,11 @@ function Register() {
           className="btn btn-outline w-full flex items-center justify-center gap-2 mt-2"
         >
           <FcGoogle className="text-2xl" />
-          <span className="text-lg">Register with Google</span>
+          <span className="text-lg">Google</span>
         </button>
-        <p className="text-center mt-4 text-gray-600">
-          Already a member?{" "}
-          <Link to="/login" className=" hover:underline">
+        <p className="text-center">
+          Are you alreadey registerad ?
+          <Link className="link text-cyan-400" to="/login">
             Login
           </Link>
         </p>

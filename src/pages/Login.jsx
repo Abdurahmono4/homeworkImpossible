@@ -29,7 +29,7 @@ function Login() {
         method="post"
         className="card w-96 p-8shadow-lg rounded-lg flex flex-col gap-y-4"
       >
-        <h4 className="text-center font-bold text-3xl text-gray-700">Login</h4>
+        <h4 className="text-center font-bold text-3xl">Login</h4>
         <input
           type="email"
           name="email"
@@ -56,9 +56,9 @@ function Login() {
           <FcGoogle className="text-2xl" />
           <span className="text-lg">Login with Google</span>
         </button>
-        <p className="text-center mt-4">
-          Not a member yet?{" "}
-          <Link to="/register" className=" hover:underline">
+        <p className="text-center">
+          Are you alreadey registerad ?
+          <Link className="link text-cyan-400" to="/register">
             Register
           </Link>
         </p>

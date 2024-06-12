@@ -37,15 +37,15 @@ const Home = () => {
   return (
     <div className="max-w-[1100px] mx-auto px-5 py-10">
       <Toaster />
-      <h1 className="text-center text-5xl mb-10 font-bold text-gray-800">
-        Tasks
+      <h1 className="text-center text-5xl mb-10 font-bold text-yellow-400">
+        Tasks List
       </h1>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col md:flex-row justify-center items-end gap-4 mb-10"
       >
         <label className="flex flex-col">
-          <span className="font-semibold text-gray-700">Title</span>
+          <span className="font-semibold text-yellow-400">Title</span>
           <input
             className="p-4 border rounded-md mt-1"
             required
@@ -54,7 +54,7 @@ const Home = () => {
           />
         </label>
         <label className="flex flex-col">
-          <span className="font-semibold text-gray-700">Description</span>
+          <span className="font-semibold  text-yellow-400">Description</span>
           <input
             className="p-4 border rounded-md mt-1"
             required
@@ -64,9 +64,9 @@ const Home = () => {
         </label>
         <button
           type="submit"
-          className="btn btn-primary py-4 px-4 mt-4 md:mt-0"
+          className="btn btn-primary py-7 px-10  ml-2 md:mt-0 items-center text-align"
         >
-          Add Task
+          Submit
         </button>
       </form>
       <ul className="bg-lime-300 w-20 md:w-[800px] mx-auto m-6 shadow-md">
