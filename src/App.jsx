@@ -4,9 +4,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-
+import { action as loginAction } from "./pages/Login";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Login, { action } from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectdetRoutes from "./components/ProtectdetRoutes";
 function App() {
@@ -29,6 +29,7 @@ function App() {
     {
       path: "/login",
       element: user ? <Navigate to="/" /> : <Login />,
+      action: loginAction,
     },
     {
       path: "/register",

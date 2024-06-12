@@ -23,7 +23,7 @@ function Register() {
   }, [data, register]);
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500">
+    <div className="h-screen flex items-center justify-center bg-gradient-to-r ">
       <Form
         method="post"
         className="card w-96 p-8 bg-white shadow-lg rounded-lg flex flex-col gap-y-4"
@@ -71,7 +71,7 @@ function Register() {
         </button>
         <p className="text-center mt-4 text-gray-600">
           Already a member?{" "}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className=" hover:underline">
             Login
           </Link>
         </p>

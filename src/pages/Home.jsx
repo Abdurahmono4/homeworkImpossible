@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useCollection } from "../hooks/useColection";
+import { useState } from "react";
+import { useCollection } from "../hooks/useCollection";
 import { useSelector } from "react-redux";
 import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
-import toast, { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import { db } from "../firebase/firebaseConfig";
 
 const Home = () => {
   const { user } = useSelector((state) => state.userState);
-  const { data } = useCollection("tasks", ["uid", "==", user.uid]);
+  const { data } = useCollection("tasks", ["uid", "==", user?.uid]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -47,7 +47,7 @@ const Home = () => {
         <label className="flex flex-col">
           <span className="font-semibold text-gray-700">Title</span>
           <input
-            className="p-2 border rounded-md mt-1"
+            className="p-4 border rounded-md mt-1"
             required
             onChange={(e) => setTitle(e.target.value)}
             type="text"
@@ -56,7 +56,7 @@ const Home = () => {
         <label className="flex flex-col">
           <span className="font-semibold text-gray-700">Description</span>
           <input
-            className="p-2 border rounded-md mt-1"
+            className="p-4 border rounded-md mt-1"
             required
             onChange={(e) => setDescription(e.target.value)}
             type="text"
@@ -64,12 +64,12 @@ const Home = () => {
         </label>
         <button
           type="submit"
-          className="btn btn-primary py-2 px-4 mt-4 md:mt-0"
+          className="btn btn-primary py-4 px-4 mt-4 md:mt-0"
         >
           Add Task
         </button>
       </form>
-      <ul className="bg-gray-100 w-full md:w-[800px] mx-auto p-4 rounded-lg shadow-md">
+      <ul className="bg-lime-300 w-20 md:w-[800px] mx-auto m-6 shadow-md">
         {data &&
           data.map((task) => (
             <li

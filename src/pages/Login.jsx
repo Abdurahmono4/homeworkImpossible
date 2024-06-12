@@ -1,4 +1,4 @@
-import { Form, Link, useActionData } from "react-router-dom";
+import { Form, Link, useActionData } from "react-router-dom"; // Corrected import
 import { useLogin } from "../hooks/useLogin";
 import { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -13,6 +13,7 @@ export const action = async ({ request }) => {
 
 function Login() {
   const data = useActionData();
+  // Assuming useActionData is defined elsewhere
   const { signin } = useLogin();
   const { registerWithGoogle } = useRegister();
 
@@ -23,10 +24,10 @@ function Login() {
   }, [data, signin]);
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
+    <div className="h-screen flex items-center justify-center bg-gradient-to-r ">
       <Form
         method="post"
-        className="card w-96 p-8 bg-white shadow-lg rounded-lg flex flex-col gap-y-4"
+        className="card w-96 p-8shadow-lg rounded-lg flex flex-col gap-y-4"
       >
         <h4 className="text-center font-bold text-3xl text-gray-700">Login</h4>
         <input
@@ -55,9 +56,9 @@ function Login() {
           <FcGoogle className="text-2xl" />
           <span className="text-lg">Login with Google</span>
         </button>
-        <p className="text-center mt-4 text-gray-600">
+        <p className="text-center mt-4">
           Not a member yet?{" "}
-          <Link to="/register" className="text-blue-500 hover:underline">
+          <Link to="/register" className=" hover:underline">
             Register
           </Link>
         </p>
