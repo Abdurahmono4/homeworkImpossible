@@ -21,7 +21,7 @@ function Login() {
     if (data) {
       signin(data);
     }
-  }, [data, signin]);
+  }, [data]);
 
   return (
     <div className="h-screen flex items-center justify-center bg-gradient-to-r ">

@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { useDispatch } from "react-redux";
-export { login } from "../features/userSlice";
+import { login } from "../features/userSlice";
 
 export function useRegister() {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ export function useRegister() {
           photoURL: data.photoURL,
         });
         dispatch(login(userCredential.user));
+        console.log(login);
       })
       .catch((e) => {
         alert(e.message);
@@ -32,6 +33,7 @@ export function useRegister() {
       })
       .catch((e) => {
         alert(e.message);
+        console.log(e.message);
       });
   };
 

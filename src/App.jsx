@@ -9,13 +9,19 @@ import Home from "./pages/Home";
 import Login, { action } from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectdetRoutes from "./components/ProtectdetRoutes";
+import { useEffect } from "react";
+import login from "./features/userSlice";
+import { authReady } from "./features/userSlice";
+import { auth } from "./firebase/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
+
 function App() {
-  const user = false;
+  const user = null;
   const routes = createBrowserRouter([
     {
       path: "/",
       element: (
-        <ProtectdetRoutes user={false}>
+        <ProtectdetRoutes user={user}>
           <MainLayout />
         </ProtectdetRoutes>
       ),
@@ -36,7 +42,18 @@ function App() {
       element: user ? <Navigate to="/" /> : <Register />,
     },
   ]);
-  return <RouterProvider router={routes} />;
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        dispatch(login(user));
+        dispatch(isAuthReady());
+      }
+    });
+  }, [user]);
+
+  return authReady && <RouterProvider router={routes} />;
 }
 
 export default App;

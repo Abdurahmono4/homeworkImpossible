@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isPending } from "@reduxjs/toolkit";
+
 const initialState = { user: null, authReadyState: false };
+
 const userSlice = createSlice({
   name: "user",
   initialState,
