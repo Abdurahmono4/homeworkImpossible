@@ -10,13 +10,14 @@ import Login, { action } from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectdetRoutes from "./components/ProtectdetRoutes";
 import { useEffect } from "react";
-import login from "./features/userSlice";
+import { login } from "./features/userSlice";
 import { authReady } from "./features/userSlice";
 import { auth } from "./firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
-
+import { useDispatch } from "react-redux";
 function App() {
   const user = null;
+  const dispatch = useDispatch();
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -48,7 +49,7 @@ function App() {
       if (user) {
         const uid = user.uid;
         dispatch(login(user));
-        dispatch(isAuthReady());
+        dispatch(authReady());
       }
     });
   }, [user]);

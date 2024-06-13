@@ -2,17 +2,16 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBP9-pkfb0V3U-ZgOCpgGC4lqhJVmxWbs4",
-  authDomain: "comfy-15e00.firebaseapp.com",
-  projectId: "comfy-15e00",
-  storageBucket: "comfy-15e00.appspot.com",
-  messagingSenderId: "1019939925831",
-  appId: "1:1019939925831:web:710043194e5992963ba662",
+  apiKey: "AIzaSyCqIgi4vcxoVhHrxd4LBQYpuOZorwd7bQI",
+  authDomain: "my-exam-6448e.firebaseapp.com",
+  projectId: "my-exam-6448e",
+  storageBucket: "my-exam-6448e.appspot.com",
+  messagingSenderId: "797282036481",
+  appId: "1:797282036481:web:991fac2f6380ab7c8a4900",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);

@@ -1,23 +1,26 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebaseConfig";
-
 import { useDispatch } from "react-redux";
-import { login } from "../features/userSlice";
+import { auth } from "../firebase/fireBaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import toast from "react-hot-toast";
 
 export function useLogin() {
   const dispatch = useDispatch();
-  const signin = (data) => {
-    console.log(data);
-    signInWithEmailAndPassword(auth, data.email, data.password)
+
+  // login with email and password
+  const login = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
-        dispatch(login({ email: data.email, password: data.password }));
+        toast.success("Welcome Comeback!");
+        dispatch(login(userCredential.user));
       })
-      .catch((e) => {
-        alert(e.message);
-        console.log(e.message);
+      .catch((error) => {
+        const match = error.message.match(/\/([^)]+)/);
+        if (match) {
+          const extracted_text = match[1];
+          console.log(extracted_text);
+        }
       });
   };
 
-  return { signin };
+  return { login };
 }

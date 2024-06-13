@@ -54,7 +54,7 @@ function Login() {
           className="btn btn-outline w-full flex items-center justify-center gap-2 mt-2"
         >
           <FcGoogle className="text-2xl" />
-          <span className="text-lg">Login with Google</span>
+          <span className="text-lg">Google</span>
         </button>
         <p className="text-center">
           Are you alreadey registerad ?
